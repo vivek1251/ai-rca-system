@@ -23,6 +23,9 @@ On-call engineers waste hours manually grepping logs during incidents. I wanted 
 ### ✅ Health Check
 ![Health Check](screenshots/health-check.png)
 
+### 🔔 Prometheus Alerts
+![Prometheus Alerts](screenshots/prometheus-alerts.gif)
+
 ## 🧠 Sample RCA output
 ```json
 {
