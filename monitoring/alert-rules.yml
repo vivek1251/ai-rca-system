@@ -2,7 +2,7 @@
   - name: flask-alerts
     rules:
       - alert: HighErrorRate
-        expr: rate(flask_http_request_total{status=~'5..'}[1m]) > 0.1
+        expr: rate(app_errors_total[1m]) > 0.1
         for: 30s
         labels:
           severity: critical
