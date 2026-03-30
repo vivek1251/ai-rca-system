@@ -1,0 +1,20 @@
+﻿groups:
+  - name: flask-alerts
+    rules:
+      - alert: HighErrorRate
+        expr: rate(flask_http_request_total{status=~'5..'}[1m]) > 0.1
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: 'High error rate detected'
+          description: 'Flask app is returning 5xx errors. Trigger RCA: http://localhost:8000/rca'
+
+      - alert: AppDown
+        expr: up{job='flask-app'} == 0
+        for: 15s
+        labels:
+          severity: critical
+        annotations:
+          summary: 'Flask app is down'
+          description: 'Flask app has stopped responding to Prometheus scrapes'
